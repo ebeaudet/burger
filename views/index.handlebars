@@ -1,7 +1,8 @@
-<div class='container bg-yellow'>
+<div class='container'>
     <div class="row">
         <div class="col-md-12">
-            <img src="../public/assets/img/Hamburger.PNG" />
+            <img
+                src="https://friendlystock.com/wp-content/uploads/2018/04/22-shocked-hamburger-emoji-cartoon-clipart.jpg" />
             <H1>EAT DA BURGER!!!</H1>
         </div>
     </div>
@@ -9,20 +10,20 @@
     <div class="row">
         <div class="col-md-6 new-burgers">
             <ul>
-                {{#each burgers}}
+                {{#each burger}}
                 {{#unless devoured}}
-                <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
-                <button type="button" class="eatBurger btn" id="btnDevourBurger"></button>
+                <button type="button" class="eatburger btn btn-warning" id="btnDevourBurger" data-id="{{this.id}}"
+                    data-burgerDevoured="{{devour}}"></span></button>
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
 
-        <div class="col-md-6 new-burgers">
+        <div class="col-md-6 devoured-burgers">
             <ul>
-                {{#each burgers}}
+                {{#each burger}}
                 {{#if devoured}}
-                <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
+                <label for="lblDevourBurger">Trash Burger</label>
                 <button type="button" class="removeBurger btn" id="btnRemoveBurger"></button>
                 {{/if}}
                 {{/each}}
@@ -35,7 +36,7 @@
             <div class="form-group">
                 <label for="lblNewBurger">New Burger</label>
                 <input type="text" id="newburger" name="burger">
-                <button typ="submit" class="btn" id="btnNewBurger"></button>
+                <button typ="submit" class="btn" id="btnNewBurger">Add New Burger</button>
             </div>
         </form>
     </div>
