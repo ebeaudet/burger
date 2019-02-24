@@ -1,8 +1,7 @@
-<div class='container'>
+<div class='container .justify-content-center'>
     <div class="row">
         <div class="col-md-12">
-            <img
-                src="https://friendlystock.com/wp-content/uploads/2018/04/22-shocked-hamburger-emoji-cartoon-clipart.jpg" />
+            <img src="" />
             <H1>EAT DA BURGER!!!</H1>
         </div>
     </div>
@@ -12,22 +11,30 @@
             <ul>
                 {{#each burger}}
                 {{#unless devoured}}
-                <button type="button" class="eatburger btn btn-warning" id="btnDevourBurger" data-id="{{this.id}}"
-                    data-burgerDevoured="{{devour}}"></span></button>
+                <div class="row">
+                    <span><strong>{{this.burger_name}} </strong></span>
+                    <button type="button" class="eat-burger" id="btnDevourBurger" 
+                    data-id="{{this.id}}" data-burgerDevoured="{{devour}}">Devour!</span></button>
+                </div>
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
 
         <div class="col-md-6 devoured-burgers">
+
             <ul>
                 {{#each burger}}
                 {{#if devoured}}
-                <label for="lblDevourBurger">Trash Burger</label>
-                <button type="button" class="removeBurger btn" id="btnRemoveBurger"></button>
+                <div class="row">
+                    <span><strong>{{this.burger_name}} </strong></span>
+                    <label for="lblDevourBurger">Trash Burger</label>
+                    <button type="button" class="removeBurger btn" id="btnRemoveBurger">Trash</button>
+                </div>
                 {{/if}}
                 {{/each}}
             </ul>
+
         </div>
     </div>
 
@@ -35,8 +42,8 @@
         <form>
             <div class="form-group">
                 <label for="lblNewBurger">New Burger</label>
-                <input type="text" id="newburger" name="burger">
-                <button typ="submit" class="btn" id="btnNewBurger">Add New Burger</button>
+                <input type="text" id="newBurger" name="burger">
+                <button type="submit" class="btn" id="btnNewBurger">Add New Burger</button>
             </div>
         </form>
     </div>

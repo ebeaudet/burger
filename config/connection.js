@@ -8,7 +8,7 @@
 // } else {
 //    connection = mysql.createConnection({
 //         host: "localhost",
-//         port: 3000,
+//         port: 3006,
 //         user: "root",
 //         password: "MySQLP@ssw0rd",
 //         database: "burgers_db"

@@ -12,8 +12,13 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("api/burgers", function(req, res) {
-    burger.insertOne(["burger_name"], [req.body.name], function(result) {
+router.post("/api/burgers", function(req, res) {
+    console.log("POST" + req.body.name);
+    burger.insertOne([
+        "burger_name"
+    ], [
+        req.body.burger_name
+    ], function(result) {
         res.json({id: result.insertId});
     });
 });

@@ -36,9 +36,9 @@ var orm = {
         });
     },
 
-    insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
-
+    insertOne: function (tableInput, cols, vals, cb) {
+        var queryString = "INSERT INTO " + tableInput;
+        
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
@@ -57,8 +57,8 @@ var orm = {
         });
     },
 
-    updateOne: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE " + table;
+    updateOne: function(tableInput, objColVals, condition, cb) {
+        var queryString = "UPDATE " + tableInput;
         
         queryString += "SET ";
         queryString += objToSql(objColVals);
