@@ -38,7 +38,7 @@ var orm = {
 
     insertOne: function (tableInput, cols, vals, cb) {
         var queryString = "INSERT INTO " + tableInput;
-        
+
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
@@ -60,9 +60,9 @@ var orm = {
     updateOne: function(tableInput, objColVals, condition, cb) {
         var queryString = "UPDATE " + tableInput;
         
-        queryString += "SET ";
+        queryString += " SET ";
         queryString += objToSql(objColVals);
-        queryString += "WHERE ";
+        queryString += " WHERE ";
         queryString += condition;
 
         console.log(queryString);
@@ -73,7 +73,23 @@ var orm = {
 
             cb(result);
         })
-    }
+    },
+
+    delete: function(tableInput, condition, cb) {
+        var queryString = "DELETE FROM " + tableInput;
+
+        queryString += " WHERE ";
+        queryString += condition;  
+        
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        })
+    },
 };
 
 module.exports = orm;

@@ -12,9 +12,10 @@
                 {{#each burger}}
                 {{#unless devoured}}
                 <div class="row">
+                    <button type="button" class="eat-burger" id="btnDevourBurger" data-id="{{this.id}}"
+                        data-burgerDevoured="{{devour}}">Devour!</span></button>
                     <span><strong>{{this.burger_name}} </strong></span>
-                    <button type="button" class="eat-burger" id="btnDevourBurger" 
-                    data-id="{{this.id}}" data-burgerDevoured="{{devour}}">Devour!</span></button>
+
                 </div>
                 {{/unless}}
                 {{/each}}
@@ -26,10 +27,10 @@
             <ul>
                 {{#each burger}}
                 {{#if devoured}}
-                <div class="row">
+                <div class="row"> 
                     <span><strong>{{this.burger_name}} </strong></span>
                     <label for="lblDevourBurger">Trash Burger</label>
-                    <button type="button" class="removeBurger btn" id="btnRemoveBurger">Trash</button>
+                    <button type="button" class="removeBurbger btn" id="btnRemoveBurger" data-id="{{this.id}}">Trash</button>
                 </div>
                 {{/if}}
                 {{/each}}

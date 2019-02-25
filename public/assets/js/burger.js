@@ -24,16 +24,32 @@ $(function () {
 
         console.log("CLICKED!!")
         var id = $(this).data("id");
+        var burgerDevoured = $(this).data("devoured");
+
         var devouredState = {
             devoured: 1
         };
-
-        $.ajax("api/burgers/" + id, {
+        console.log(devouredState);
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: devouredState
         }).then(
             function () {
                 console.log("changed devoured to ", burgerDevoured);
+                location.reload();
+            });
+    });
+
+    $("#btnRemoveBurger").on("click", function (event) {
+        event.preventDefault();
+
+        console.log("CLICKED!!")
+        var id = $(this).data("id");
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(
+            function () {
+                console.log("deleted burger");
                 location.reload();
             });
     });
