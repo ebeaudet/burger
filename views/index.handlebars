@@ -1,49 +1,52 @@
-<div class='container .justify-content-center'>
+<div class='container'>
     <div class="jumbotron">
         <h1 class="text-center">EAT DA BURGER!!!</h1>
-
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 new-burgers">
-            <ul>
-                {{#each burger}}
-                {{#unless devoured}}
-                <div class="row">
-                    <button type="button" class="eat-burger" id="btnDevourBurger" data-id="{{this.id}}"
-                        data-burgerDevoured="{{devour}}">Devour!</span></button>
-                    <span><strong>{{this.burger_name}} </strong></span>
-                </div>
-                {{/unless}}
-                {{/each}}
-            </ul>
+        <div class="text-center">
+            <img src="/assets/img/burger.png" class="rounded" alt="...">
         </div>
 
-        <div class="col-md-6 devoured-burgers">
-
-            <ul>
-                {{#each burger}}
-                {{#if devoured}}
-                <div class="row">
-                    <span><strong>{{this.burger_name}} </strong></span>
-                    <label for="lblDevourBurger">Trash Burger</label>
-                    <button type="button" class="removeBurbger btn" id="btnRemoveBurger"
-                        data-id="{{this.id}}">Trash</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 new-burgers">
+                    <ul>
+                        {{#each burger}}
+                        {{#unless devoured}}
+                        <div class="row">
+                            <button type="button" class="eat-burger btn btn-sm" id="btnDevourBurger"
+                                data-id="{{this.id}}" data-burgerDevoured="{{devour}}">Devour!</span></button>
+                            <span><strong>{{this.burger_name}} </strong></span>
+                        </div>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
                 </div>
-                {{/if}}
-                {{/each}}
-            </ul>
 
-        </div>
-    </div>
+                <div class="col-md-6 devoured-burgers justify-content-center">
 
-    <div class="row">
-        <form>
-            <div class="form-group">
-                <label for="lblNewBurger">New Burger</label>
-                <input type="text" id="newBurger" name="burger">
-                <button type="submit" class="btn" id="btnNewBurger">Add New Burger</button>
+                    <ul>
+                        {{#each burger}}
+                        {{#if devoured}}
+                        <div class="row">
+                            <span><strong>{{this.burger_name}} </strong></span>
+                            <label for="lblDevourBurger"></label>
+                            <button type="button" class="removeBurbger btn btn-sm" id="btnRemoveBurger"
+                                data-id="{{this.id}}">Trash</button>
+                        </div>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+
+                </div>
             </div>
-        </form>
+
+            <div class="row justify-content-center">
+                <form>
+                    <div class="form-group">
+                        <label for="lblNewBurger">New Burger</label>
+                        <input type="text" id="newBurger" name="burger">
+                        <button type="submit" class="btn" id="btnNewBurger">Add New Burger</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
